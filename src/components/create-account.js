@@ -8,6 +8,7 @@ class AccountInfo  {
         this.joinedDate = new Date();
         this.followers = [];
         this.following = [];
+        this.listoftweets = [];
     }
 }
 export default AccountInfo;

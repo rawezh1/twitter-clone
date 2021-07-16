@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function Account(props) {
   const renderAccount = (info) => {
-    return makeHeader(info);
-    //makeFeed(info);
+    return <div>
+        {makeHeader(info)}
+        {makeFeed(info)}
+    </div> 
   };
   const makeHeader = (info) => {
     return (
@@ -50,6 +52,11 @@ function Account(props) {
       </div>
     );
   };
+  const makeFeed = (info) => {
+      return info.listoftweets.map ((tweet) => {
+          return <Tweet content={tweet}/>
+      })
+  }
   return <div className='account'>{renderAccount(props.info)}</div>;
 }
 export default Account;
