@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Tweet from './tweet';
-
+import './account.css';
 function Account(props) {
   const makeHeader = (info) => {
     return (
@@ -48,18 +48,22 @@ function Account(props) {
     );
   };
   const makeFeed = (info) => {
-    console.log(info.listoftweets[0])
+    console.log(info.listoftweets[0]);
     const feed = info.listoftweets.map((tweet) => {
       console.log(<Tweet content={tweet} />);
       return <Tweet content={tweet} />;
-    })
+    });
     console.log(feed);
     return feed;
   };
   return (
     <div className='account'>
-      <div>{makeHeader(props.info)}</div>
-      <div>{makeFeed(props.info)}</div>
+      <div></div>
+      <div>
+        <div>{makeHeader(props.info)}</div>
+        <div>{makeFeed(props.info)}</div>
+      </div>
+      <div ></div>
     </div>
   );
 }
