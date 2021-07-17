@@ -1,4 +1,4 @@
-class AccountInfo  {
+class AccountObj  {
     constructor (name,pic,banner) {
         this.name = name;
         this.id = '@'+name;
@@ -11,4 +11,4 @@ class AccountInfo  {
         this.listoftweets = [];
     }
 }
-export default AccountInfo;
+export default AccountObj;

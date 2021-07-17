@@ -1,11 +1,14 @@
-import AccountInfo from './components/create-account';
+import AccountObj from './components/create-account-obj';
 import Account from './components/account';
+import TweetObj from './components/create-tweet-obj';
 import DefaultPic from './components/images/default-pic.png'
 import DefualtBanner from './components/images/default-header.jpg'
 import './App.css';
 
 function App() {
-  const testAccount = new AccountInfo('test',DefaultPic,DefualtBanner);
+  const testAccount = new AccountObj('test',DefaultPic,DefualtBanner);
+  const testTweet = new TweetObj(testAccount,'Hello World!',[], new Date());
+  testAccount.listoftweets.push(testTweet);
   return (
     <div className="App">
       <Account info = {testAccount}/>

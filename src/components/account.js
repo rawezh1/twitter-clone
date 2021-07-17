@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Tweet from './tweet';
 
 function Account(props) {
-  const renderAccount = (info) => {
-    return <div>
-        {makeHeader(info)}
-        {makeFeed(info)}
-    </div> 
-  };
   const makeHeader = (info) => {
     return (
       <div className='account-header'>
@@ -53,10 +48,19 @@ function Account(props) {
     );
   };
   const makeFeed = (info) => {
-      return info.listoftweets.map ((tweet) => {
-          return <Tweet content={tweet}/>
-      })
-  }
-  return <div className='account'>{renderAccount(props.info)}</div>;
+    console.log(info.listoftweets[0])
+    const feed = info.listoftweets.map((tweet) => {
+      console.log(<Tweet content={tweet} />);
+      return <Tweet content={tweet} />;
+    })
+    console.log(feed);
+    return feed;
+  };
+  return (
+    <div className='account'>
+      <div>{makeHeader(props.info)}</div>
+      <div>{makeFeed(props.info)}</div>
+    </div>
+  );
 }
 export default Account;
