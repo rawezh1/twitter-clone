@@ -4,7 +4,7 @@ class AccountObj  {
         this.id = '@'+name;
         this.pic = pic;
         this.banner = banner;
-        this.bio = '';
+        this.bio = 'The quick brown fox dolor sit amet';
         this.joinedDate = new Date();
         this.followers = [];
         this.following = [];

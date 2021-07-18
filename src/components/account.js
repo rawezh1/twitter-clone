@@ -13,18 +13,20 @@ function Account(props) {
             <button className='follow-btn'>follow</button>
           </div>
           <div className='name-id-cont'>
-            <h1 className='name-h'>{info.name}</h1>
-            <h2 className='id-h'>{info.id}</h2>
+          <span className='name-h'>{info.name}</span>
+            <span className='id-h'>{info.id}</span>
           </div>
           <div className='bio-links-cont'>
             <p className='bio-p'>{info.bio}</p>
-            <div className='basic-info'></div>
+            <div className='basic-info'>
+              <span>Joined {info.joinedDate.getFullYear()}</span>
+            </div>
             <div className='followers-cont'>
               <a className='following-a' href='http'>
-                following
+                {info.following.length} Following
               </a>
               <a className='followers-a' href='http'>
-                followers
+                 {info.following.length} Followers
               </a>
             </div>
           </div>

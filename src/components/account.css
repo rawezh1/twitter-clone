@@ -13,8 +13,8 @@
 }
 
 .profile-pic {
-  width: 30vmin;
-  height: 30vmin;
+  width: 25vmin;
+  height: 25vmin;
   border-radius: 50%;
   margin-top: -15vmin;
   border: solid white;
@@ -23,9 +23,68 @@
     filter: brightness(80%);
 }
 .follow-btn {
-    width: 20vmin;
-    height:10vmin;
-    border-radius: 5vmin;
+    width: 16vmin;
+    height:6vmin;
+    border-radius: 3vmin;
     border: solid thin blue;
     color:blue;
+}
+.name-id-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.name-h {
+  margin:0;
+  padding:0;
+  font-size: 20px;
+  color: rgb(15, 20, 25);
+}
+.id-h {
+  margin:0;
+  padding:0;
+  color: rgba(128, 128, 128, 0.76);
+}
+.bio-links-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 15px;
+  color: rgb(83, 100, 113);
+}
+.bio-p {
+  color:black;
+}
+a {
+  text-decoration: none;
+}
+.followers-a {
+  margin-left: 5vmin;
+}
+.following-a:hover {
+  text-decoration: underline;
+}
+.following-a:hover {
+  text-decoration: underline;
+}
+.feed-select {
+  display: flex;
+  justify-content: space-between;
+}
+nav > div {
+  border:none black;
+  height: 10vmin;
+  width:100%;
+  line-height: 10vmin;
+  transition-duration: 0.2s;
+}
+nav > div > a {
+  color:rgb(69, 83, 94);
+  
+}
+nav > div:hover {
+  background-color: rgba(139, 175, 241, 0.438);
+}
+nav > div:hover > a {
+  color:rgb(29, 161, 242);
 }
