@@ -6,7 +6,7 @@ import DefualtBanner from './components/images/default-header.jpg'
 import './App.css';
 
 function App() {
-  const testAccount = new AccountObj('test',DefaultPic,DefualtBanner);
+  const testAccount = new AccountObj('Test',DefaultPic,DefualtBanner);
   const testTweet = new TweetObj(testAccount,'Hello World!',[], new Date());
   testAccount.listoftweets.push(testTweet);
   return (

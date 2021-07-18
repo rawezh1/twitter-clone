@@ -2,6 +2,10 @@
   display: grid;
   grid-template-columns: 1fr 2fr 1.5fr;
 }
+.account-header{
+  border: solid  rgb(228, 230, 232);
+  border-width: 1px;
+}
 .banner {
   width: 100%;
   height: 35vh;
@@ -13,19 +17,20 @@
 }
 
 .profile-pic {
-  width: 25vmin;
-  height: 25vmin;
+  width: 133px;
+  height: 133px;
   border-radius: 50%;
-  margin-top: -15vmin;
+  margin-top: -75px;
+  transition-duration: 0.2s;
   border: solid white;
 }
 .profile-pic:hover {
     filter: brightness(80%);
 }
 .follow-btn {
-    width: 16vmin;
-    height:6vmin;
-    border-radius: 3vmin;
+    width: 100px;
+    height:40px;
+    border-radius: 20px;
     border: solid thin blue;
     color:blue;
 }
