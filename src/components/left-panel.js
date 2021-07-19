@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Tweet from './tweet';
-import './account.css';
 import './left-panel.css';
 import Pigeon from './images/pigeon.svg';
 function LeftBar() {
   return (
     <div className='left-bar'>
-        <div className='sticky-bar'>
+        <div className='sticky-bar'> 
         <div className='left-bar-icon'>
         <div className='icon-container'>
           <img src={Pigeon} alt='pigeon'></img>

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Tweet from './tweet';
 import './account.css';
 import LeftBar from './left-panel';
+import RightBar from './right-panel';
 
 function MainFeed(props) {
   const makeFeed = (accounts) => {
@@ -20,7 +21,7 @@ function MainFeed(props) {
       <div>
         <div>{makeFeed(props.accounts)}</div>
       </div>
-      <div ></div>
+      <RightBar />
     </div>
   );
 }

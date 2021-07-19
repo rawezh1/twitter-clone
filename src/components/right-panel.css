@@ -1,0 +1,24 @@
+.right-items {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  border: solid 1px rgb(228, 230, 232);
+  border-radius: 10px;
+  height: 200px;
+  margin-left: 20px;
+  margin-top: 0px;
+  margin-right: 10px;
+}
+.right-items > button {
+  border: none;
+  width: 90%;
+  height: 3em;
+  color: white;
+  font-size: medium;
+  border-radius: 25px;
+  background-color: cornflowerblue;
+  transition: 0.1s;
+}
+.right-items > button:hover {
+    filter: brightness(0.95);
+}
