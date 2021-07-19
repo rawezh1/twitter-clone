@@ -76,20 +76,20 @@ a {
   display: flex;
   justify-content: space-between;
 }
-nav > div {
+.feed-select > div {
   border:none black;
   height: 10vmin;
   width:100%;
   line-height: 10vmin;
   transition-duration: 0.2s;
 }
-nav > div > a {
+.feed-select > div > a {
   color:rgb(69, 83, 94);
   
 }
-nav > div:hover {
+.feed-select > div:hover {
   background-color: rgba(139, 175, 241, 0.438);
 }
-nav > div:hover > a {
+.feed-select > div:hover > a {
   color:rgb(29, 161, 242);
 }

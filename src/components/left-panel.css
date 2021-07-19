@@ -1,0 +1,81 @@
+.left-bar {
+    padding-left: 1em;
+}
+.sticky-bar {
+    position: -webkit-sticky;
+    position: sticky;
+    top:0;
+}
+.icon-container {
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+}
+.icon-container > img {
+    width:60%;
+    height:65%;
+    margin-top: 15%;
+    margin-right: 5%;
+}
+.icon-container:hover {
+    background-color: rgba(143, 170, 221, 0.233);
+}
+.left-bar-explore {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-items: baseline;
+    height: 2.5em;
+    width: 9em;
+    border-radius: 2em;
+    padding-top: 14px;
+    transition: 0.2s;
+}
+.left-bar-explore > svg {
+    height: 1.75em;
+    width: 1.75em;
+    margin-left: 12px;
+    transition: 0.2s;
+}
+.left-bar-explore > span {
+    color: rgb(15, 20, 25);
+    width:50%;
+    font-size:1.4em;
+    font-weight: 700;
+    margin-left:10px;
+    transition: 0.2s;
+}
+.to-blue:hover {
+    background-color: rgba(180, 206, 255, 0.349);
+    
+}
+.to-blue:hover > span {
+    color:cornflowerblue;
+}
+.to-blue:hover > svg {
+    fill:cornflowerblue
+}
+.left-bar-settings {
+    display: flex;
+    flex-direction: row;
+    justify-items: baseline;
+    height: 2.5em;
+    width: 9em;
+    border-radius: 2em;
+    padding-top: 14px;
+    transition: 0.2s;
+}
+.left-bar-settings> svg {
+    height: 1.75em;
+    width: 1.75em;
+    margin-left: 12px;
+    transition: 0.2s;
+}
+.left-bar-settings > span {
+    color: rgb(15, 20, 25);
+    width:50%;
+    font-size:1.4em;
+    font-weight: 700;
+    margin-left:10px;
+    transition: 0.2s;
+}
