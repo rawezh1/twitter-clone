@@ -1,0 +1,16 @@
+.reg-from {
+    background-color: grey;
+}
+.form-cont {
+    max-width: 50%;
+    max-height: 90%;
+    margin:auto;
+    margin-top: 10%;
+    background-color: white;
+    border: solid grey;
+    border-radius: 10px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}

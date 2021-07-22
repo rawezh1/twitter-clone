@@ -22,9 +22,9 @@ function Tweet(props) {
         <div className='right-side'>
           <div className='tweet-content'>
             <div className='name-id-date-cont'>
-              <span className='name-h'>{contents.user.name}</span>
-              <span className='id-h'>{contents.user.id}</span>
-              <span className='tweet-date'> {contents.date.getFullYear()}</span>
+              <span className='name-h'>{contents.userName}</span>
+              <span className='id-h'>{contents.userId}</span>
+              <span className='tweet-date'> {contents.date}</span>
             </div>
             <p className='tweet-text'>{contents.textContent}</p>
             <img
