@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './left-panel.css';
-import Pigeon from './images/pigeon.svg';
+import Pigeon from '../images/pigeon.svg';
 function LeftBar() {
   return (
     <div className='left-bar'>

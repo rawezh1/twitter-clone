@@ -1,14 +1,12 @@
 import React from 'react';
-import './sign-up.css';
+import './sign-in.css';
 import  firebase from 'firebase';
-import AccountObj from './create-account-obj';
+import AccountObj from '../object-create-functions/create-account-obj';
 
-function SignUp() {
+function SignIn() {
   const initialUserData = {
-    name: '',
     email: '',
     password: '',
-    birthday: '',
   };
   const [userData, updateUserData] = React.useState(initialUserData);
 
@@ -20,9 +18,6 @@ function SignUp() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const usersRef = firebase.database().ref('users/').push();
-    const account = new AccountObj(userData.name,userData.email,userData.password,userData.birthday)
-    usersRef.set(account)
   };
   return (
     <div className='reg-form'>
@@ -30,12 +25,6 @@ function SignUp() {
         <img alt='twitterIcon'></img>
         <h1>Create your Account</h1>
         <form onSubmit={handleSubmit}>
-          <input
-            type='text'
-            id='name'
-            placeholder='Name'
-            onChange={handleChange}
-          ></input>
           <input
             type='email'
             id='email'
@@ -48,12 +37,10 @@ function SignUp() {
             placeholder='Password'
             onChange={handleChange}
           ></input>
-          <label for='birthday'>Birthday:</label>
-          <input type='date' id='birthday' onChange={handleChange}></input>
-          <input type='submit' value='Submit' onChange={handleChange}></input>
+          <input type='submit' value='Log In' onChange={handleChange}></input>
         </form>
       </div>
     </div>
   );
 }
-export default SignUp;
+export default SignIn;

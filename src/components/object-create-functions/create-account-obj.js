@@ -1,5 +1,5 @@
-import DefaultPic from './images/default-pic.png';
-import DefualtBanner from './images/default-header.jpg';
+import DefaultPic from '../images/default-pic.png';
+import DefualtBanner from '../images/default-header.jpg';
 class AccountObj {
   constructor(name, email, password, birthday) {
     this.name = name;
@@ -11,8 +11,8 @@ class AccountObj {
     this.banner = DefualtBanner;
     this.bio = 'The quick brown fox dolor sit amet';
     this.joinedDate = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
-    this.followers = [];
-    this.following = [];
+    this.followers = 0;
+    this.following = 0;
     this.listoftweets = [];
   }
 }

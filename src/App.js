@@ -1,11 +1,13 @@
-import AccountObj from './components/create-account-obj';
+import AccountObj from './components/object-create-functions/create-account-obj';
 import Account from './components/account';
-import TweetObj from './components/create-tweet-obj';
+import TweetObj from './components/object-create-functions/create-tweet-obj';
 import MainFeed from './components/main-feed';
 import  firebase from 'firebase';
 import './App.css';
-import SignUp from './components/sign-up';
+import SignUp from './components/signup-in/sign-up';
 import { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import CreateTweet from './components/create-tweet';
 
 function App() {
   const [users,setUsers] = useState([])
@@ -22,12 +24,18 @@ function App() {
     firebase.app();
  }
 
-  //<MainFeed accounts = {listOfAccount}/>
   return (
-    
-    <div className="App">
-      <SignUp/>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path='/signup'> <SignUp/> </Route>
+          <Route path='/explore'><MainFeed/></Route>
+          <Route path='/createtweet'><CreateTweet pic={new AccountObj('a','b','c','d').profilePic}/></Route>
+        </Switch>
+      
     </div>
+    </Router>
+    
   );
 }
 

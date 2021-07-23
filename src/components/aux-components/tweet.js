@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './tweet.css';
-import Retweet from './images/retweet.svg';
+import Retweet from '../images/retweet.svg';
 
-function Tweet(props) {
+function ShowTweet(props) {
   const showNumber = (array) => {
     if (array.length) {
       return array.length;
@@ -16,7 +16,7 @@ function Tweet(props) {
           <img
             className='tweet-profile-pic'
             alt='tweet-profile-pic'
-            src={contents.user.pic}
+            src={contents.pic}
           ></img>
         </div>
         <div className='right-side'>
@@ -66,4 +66,4 @@ function Tweet(props) {
 
   return <div className='tweet-cont'>{renderTweet(props.content)}</div>;
 }
-export default Tweet;
+export default ShowTweet;
