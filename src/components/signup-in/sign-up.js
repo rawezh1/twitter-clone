@@ -1,6 +1,7 @@
 import React from 'react';
 import './sign-up.css';
 import  firebase from 'firebase';
+import 'firebase/auth'
 import AccountObj from '../object-create-functions/create-account-obj';
 
 function SignUp() {
@@ -20,9 +21,14 @@ function SignUp() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const usersRef = firebase.database().ref('users/').push();
-    const account = new AccountObj(userData.name,userData.email,userData.password,userData.birthday)
-    usersRef.set(account)
+    const account = new AccountObj(userData.name,userData.birthday)
+    firebase.auth().createUserWithEmailAndPassword(
+      userData.email,userData.password
+    ).then((resp) => {
+      firebase.database().ref('users/').child(resp.user.uid).set(account)
+    }).then(() => {firebase.auth().signInWithEmailAndPassword(userData.email,userData.password).then(()=> {
+        console.log('loggin done')
+      }).catch((err) => console.log(err))})
   };
   return (
     <div className='reg-form'>

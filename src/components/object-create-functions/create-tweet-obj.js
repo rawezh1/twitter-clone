@@ -1,8 +1,8 @@
 class TweetObj  {
-    constructor (usr = {id:'',name:'',pic:''},txt,pics) {
-        this.userId = usr.id;
-        this.userName = usr.name;
-        this.userPic = usr.pic;
+    constructor (usrId,usrName,usrPic,txt,pics) {
+        this.userId = usrId;
+        this.userName = usrName;
+        this.userPic = usrPic;
         this.textContent = txt;
         this.images = pics;
         this.date = new Date().toJSON().slice(0,10).replace(/-/g,'/');

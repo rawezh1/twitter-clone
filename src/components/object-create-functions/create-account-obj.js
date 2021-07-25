@@ -1,11 +1,9 @@
-import DefaultPic from '../images/default-pic.png';
+import DefaultPic from '../images/default-pic.jpg';
 import DefualtBanner from '../images/default-header.jpg';
 class AccountObj {
-  constructor(name, email, password, birthday) {
+  constructor(name, birthday) {
     this.name = name;
     this.id = '@' + name;
-    this.email = email;
-    this.password = password;
     this.birthday = birthday;
     this.profilePic = DefaultPic;
     this.banner = DefualtBanner;

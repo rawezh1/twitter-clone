@@ -1,6 +1,7 @@
 import React from 'react';
 import './sign-in.css';
 import  firebase from 'firebase';
+import 'firebase/auth';
 import AccountObj from '../object-create-functions/create-account-obj';
 
 function SignIn() {
@@ -18,12 +19,15 @@ function SignIn() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    firebase.auth().signInWithEmailAndPassword(userData.email,userData.password).then(()=> {
+      console.log('loggin done')
+    }).catch((err) => console.log(err))
   };
   return (
     <div className='reg-form'>
       <div className='form-cont'>
         <img alt='twitterIcon'></img>
-        <h1>Create your Account</h1>
+        <h1>Sign  in</h1>
         <form onSubmit={handleSubmit}>
           <input
             type='email'
