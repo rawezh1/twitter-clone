@@ -1,27 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ShowTweet from './aux-components/show-tweet';
+import firebase from 'firebase';
+import 'firebase/auth';
 import './account.css';
-import LeftBar from './panels/left-panel';
-import RightBar from './panels/right-panel';
-
+import TweetObj from './object-create-functions/create-tweet-obj';
 function MainFeed(props) {
-  const makeFeed = (accounts) => {
-    const feed = accounts.map ((account => {
-        return account.listoftweets.map((tweet) => {
-            return <ShowTweet content={tweet} />;
+  const [tweets, updateTweets] = useState([]);
+
+  useEffect(() => {
+    console.log('effect');
+    const initialize = async () => {
+      await firebase
+        .database()
+        .ref('tweets/')
+        .once('value', (snapshot) => {
+          var data = [];
+          snapshot.forEach((element) => {
+            data.push(element.val());
           });
-    }))
-    console.log(feed);
+          updateTweets(data);
+        });
+    };
+    initialize();
+  }, []);
+
+  const makeFeed = () => {
+    if (tweets.length === 0) {
+      return null;
+    }
+    const feed = tweets.map((tweet,index) => {
+      return <ShowTweet key={index} content={tweet} />;
+    })
     return feed;
   };
+
   return (
-    <div className='account'>
-      <LeftBar />
+    <div className='feed'>
       <div>
-        <div>{makeFeed(props.accounts)}</div>
+        <div>{makeFeed()}</div>
       </div>
-      <RightBar />
     </div>
   );
 }

@@ -10,6 +10,8 @@ import SignIn from './components/signup-in/sign-in';
 import { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import CreateTweet from './components/create-tweet';
+import Home from './components/home';
+import ShowTweet from './components/aux-components/show-tweet';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -26,15 +28,30 @@ function App() {
   } else {
     firebase.app();
   }
-  const signOut = () => {
-    return firebase.auth().signOut().then(() => console.log('logged out')).catch((err) => console.log(err));
+  const done = () => {
+    firebase.database().ref('tweets/').remove();
+    firebase
+      .database()
+      .ref('users/n9oGpkmpztT0MI1k8xodt6XHFeB2/tweets/')
+      .remove();
+    console.log('delete done');
   };
-
+  //done();
+  const signOut = () => {
+    return firebase
+      .auth()
+      .signOut()
+      .then(() => console.log('logged out'))
+      .catch((err) => console.log(err));
+  };
   return (
     <Router>
       <div className='App'>
-        {firebase.auth.uid ? null:<button onClick={signOut}>Sign out</button>}
         <Switch>
+          <Route path='/home'>
+            {' '}
+            <Home />{' '}
+          </Route>
           <Route path='/signin' exact>
             {' '}
             <SignIn />{' '}

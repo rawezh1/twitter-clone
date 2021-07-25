@@ -20,21 +20,18 @@ function CreateTweet(props) {
     await firebase
       .database()
       .ref('users/' + uId)
-      .on('value', (snapshot) => {
+      .once('value', async (snapshot) => {
         const user = snapshot.val();
-        const tweet = new TweetObj(
+        const tweet = await new TweetObj(
           user.id,
           user.name,
           user.profilePic,
           tweetData.txt,
           tweetData.img
         );
-        const tweetRefKey = firebase.database().ref('tweets/').push().key;
-        let updates = {};
-        updates['tweets/' + tweetRefKey] = tweet;
-        updates['users/' + uId + '/tweets/' + tweetRefKey] = tweet;
-
-        firebase.database().ref().update(updates);
+        const tweetRefKey = await firebase.database().ref('tweets/').push().key;
+        await firebase.database().ref('tweets/' + tweetRefKey).update(tweet);
+        await firebase.database().ref('users/'+uId+'/tweets/'+tweetRefKey).update(tweet)
       });
   };
   const tweetForm = (pic) => {

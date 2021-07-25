@@ -1,5 +1,6 @@
 .left-bar {
     padding-left: 1em;
+    max-height: 100%;
 }
 .sticky-bar {
     position: -webkit-sticky;
@@ -20,31 +21,6 @@
 .icon-container:hover {
     background-color: rgba(143, 170, 221, 0.233);
 }
-.left-bar-explore {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-items: baseline;
-    height: 2.5em;
-    width: 10em;
-    border-radius: 2em;
-    padding-top: 14px;
-    transition: 0.2s;
-}
-.left-bar-explore > svg {
-    height: 1.75em;
-    width: 1.75em;
-    margin-left: 12px;
-    transition: 0.2s;
-}
-.left-bar-explore > span {
-    color: rgb(15, 20, 25);
-    width:50%;
-    font-size:1.4em;
-    font-weight: 700;
-    margin-left:10px;
-    transition: 0.2s;
-}
 .to-blue:hover {
     background-color: rgba(180, 206, 255, 0.349);
     
@@ -55,27 +31,40 @@
 .to-blue:hover > svg {
     fill:cornflowerblue
 }
-.left-bar-settings {
+.link-bar {
+    margin-top: 10px;
     display: flex;
+    width: min-content;
     flex-direction: row;
     justify-items: baseline;
-    height: 2.5em;
-    width: 10em;
+    height: 2.2em;
     border-radius: 2em;
     padding-top: 14px;
     transition: 0.2s;
 }
-.left-bar-settings> svg {
+.link-bar > svg {
     height: 1.75em;
     width: 1.75em;
     margin-left: 12px;
     transition: 0.2s;
 }
-.left-bar-settings > span {
+.link-bar > span {
     color: rgb(15, 20, 25);
     width:50%;
-    font-size:1.4em;
+    font-size:1.1em;
     font-weight: 700;
     margin-left:10px;
     transition: 0.2s;
+    margin-right:10px;
+}
+.sticky-bar > button {
+  width:100%;
+  border: none;
+  height: 3em;
+  color: white;
+  font-size: medium;
+  border-radius: 25px;
+  background-color: cornflowerblue;
+  transition: 0.1s;
+  margin-bottom: 2px;
 }
