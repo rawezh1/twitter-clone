@@ -54,7 +54,7 @@ function SignUp() {
             placeholder='Password'
             onChange={handleChange}
           ></input>
-          <label for='birthday'>Birthday:</label>
+          <label htmlFor='birthday'>Birthday:</label>
           <input type='date' id='birthday' onChange={handleChange}></input>
           <input type='submit' value='Submit' onChange={handleChange}></input>
         </form>

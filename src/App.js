@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import CreateTweet from './components/create-tweet';
 import Home from './components/home';
 import ShowTweet from './components/aux-components/show-tweet';
+import Profile from './components/profile';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -48,6 +49,9 @@ function App() {
     <Router>
       <div className='App'>
         <Switch>
+        <Route path='/profile'>
+            <Profile/>
+          </Route>
           <Route path='/home'>
             {' '}
             <Home />{' '}
