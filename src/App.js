@@ -1,7 +1,6 @@
 import AccountObj from './components/object-create-functions/create-account-obj';
 import Account from './components/account';
-import TweetObj from './components/object-create-functions/create-tweet-obj';
-import MainFeed from './components/main-feed';
+import MainFeed from './components/aux-components/main-feed';
 import firebase from 'firebase';
 import 'firebase/auth';
 import './App.css';
@@ -9,14 +8,11 @@ import SignUp from './components/signup-in/sign-up';
 import SignIn from './components/signup-in/sign-in';
 import { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import CreateTweet from './components/create-tweet';
+import CreateTweet from './components/aux-components/create-tweet';
 import Home from './components/home';
-import ShowTweet from './components/aux-components/show-tweet';
 import Profile from './components/profile';
 
 function App() {
-  const [users, setUsers] = useState([]);
-  function getUsers() {}
   if (!firebase.apps.length) {
     firebase.initializeApp({
       apiKey: 'AIzaSyA2-BK4-nNDpYMgViHswmWdjV9MBt_HgUI',
@@ -49,8 +45,11 @@ function App() {
     <Router>
       <div className='App'>
         <Switch>
-        <Route path='/profile'>
-            <Profile/>
+          <Route path='/account'>
+            <Account />
+          </Route>
+          <Route path='/profile'>
+            <Profile />
           </Route>
           <Route path='/home'>
             {' '}
@@ -68,7 +67,7 @@ function App() {
             <MainFeed />
           </Route>
           <Route path='/createtweet' exact>
-            <CreateTweet pic={new AccountObj('a', 'b', 'c', 'd').profilePic} />
+            <CreateTweet pic={new AccountObj('a', 'b', 'c', 'd').pic} />
           </Route>
         </Switch>
       </div>

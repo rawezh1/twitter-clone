@@ -5,7 +5,7 @@ class AccountObj {
     this.name = name;
     this.id = '@' + name;
     this.birthday = birthday;
-    this.profilePic = DefaultPic;
+    this.pic = DefaultPic;
     this.banner = DefualtBanner;
     this.bio = 'The quick brown fox dolor sit amet';
     this.joinedDate = new Date().toJSON().slice(0, 10).replace(/-/g, '/');

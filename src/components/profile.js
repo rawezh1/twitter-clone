@@ -1,53 +1,70 @@
 import firebase from 'firebase';
 import 'firebase/auth';
 import { useState } from 'react';
-import { useEffect,useRef } from 'react/cjs/react.development';
+import { useEffect, useRef } from 'react/cjs/react.development';
 import './profile.css';
+import { convertImgto64, removeEmpty } from './helpers/helper-funcs';
 
 function Profile() {
-  const initialFormData = {
-    name: '',
-    id: '',
-    birthday: '',
-    bio: '',
-    pic: '',
-    banner: '',
-  };
   const [user, updateUser] = useState(null);
-  const [formData, updateFormData] = useState(initialFormData);
-  const [userData, updateUserData] = useState(null);
+  const [formData, updateFormData] = useState(null);
   firebase.auth().onAuthStateChanged((userState) => {
     if (userState) {
       updateUser(userState);
     }
   });
   const isInitialMount = useRef(true);
+  const userLoad = useRef(false);
   useEffect(() => {
     if (isInitialMount.current) {
-       isInitialMount.current = false;
+      isInitialMount.current = false;
     } else {
+      if (userLoad.current) {
+        return null;
+      }
+      userLoad.current = true;
       firebase
-      .database()
-      .ref('users/' + user.uid)
-      .once('value', (snapshot) => {
-        updateUserData(snapshot.val());
-      });
+        .database()
+        .ref('users/' + user.uid)
+        .once('value', (snapshot) => {
+          const data = {
+            name: snapshot.val().name,
+            id: snapshot.val().id,
+            birthday: snapshot.val().birthday,
+            bio: snapshot.val().bio,
+            pic: '',
+            banner: '',
+          };
+          updateFormData(data);
+        });
     }
   });
+
   const handleChange = (e) => {
-    updateFormData({
+    const newValue = {
       ...formData,
-      [e.target.id]: e.target.value.trim(),
-    });
+      [e.target.id]: e.target.value,
+    };
+    updateFormData(newValue);
   };
   // TODO: redirect to home page after submit, also do this for sign up.
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    console.log(formData);
     var data = { ...formData };
-    if (data.id[0] !== '@') {
-      data.id = '@' + data.id;
+    removeEmpty(data);
+    if (data.id) {
+      if (data.id[0] !== '@') {
+        data.id = '@' + data.id;
+      }
     }
+    if (data.pic) {
+      data.pic = convertImgto64(data.pic);
+    }
+    if (data.banner) {
+      data.banner = convertImgto64(data.banner);
+    }
+    console.log(data);
     firebase
       .database()
       .ref('users/' + user.uid)
@@ -61,33 +78,33 @@ function Profile() {
           <input
             type='text'
             id='name'
-            value={userData.name}
+            value={formData.name}
             onChange={handleChange}
           ></input>
           <label htmlFor='id'>At (@):</label>
           <input
             type='text'
             id='id'
-            value={userData.id}
+            value={formData.id}
             onChange={handleChange}
           ></input>
           <label htmlFor='birthday'>Birthday:</label>
           <input
             type='date'
             id='birthday'
-            value={userData.birthday}
+            value={formData.birthday}
             onChange={handleChange}
           ></input>
           <label htmlFor='bio'>Biography:</label>
           <input
             type='text'
             id='bio'
-            value={userData.bio}
+            value={formData.bio}
             onChange={handleChange}
           ></input>
-          <label htmlFor='pic'>Profile picture:</label>
+          <label htmlFor='pic'>Profile picture (only jpg):</label>
           <input type='file' id='pic' onChange={handleChange}></input>
-          <label htmlFor='banner'>Cover image:</label>
+          <label htmlFor='banner'>Cover image (only jpg):</label>
           <input type='file' id='banner' onChange={handleChange}></input>
           <input type='submit'></input>
         </form>
@@ -96,7 +113,7 @@ function Profile() {
   };
 
   const render = () => {
-    if (user && userData) {
+    if (user && formData) {
       return component();
     } else {
       return <h1>Loading...</h1>;

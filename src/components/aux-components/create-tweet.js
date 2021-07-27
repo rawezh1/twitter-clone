@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import firebase from 'firebase';
 import 'firebase/auth';
 import './create-tweet.css';
-import TweetObj from './object-create-functions/create-tweet-obj';
+import TweetObj from '../object-create-functions/create-tweet-obj';
 
 function CreateTweet(props) {
   const [tweetData, updateTweetData] = useState({ txt: '', img: '' });
@@ -25,7 +25,7 @@ function CreateTweet(props) {
         const tweet = await new TweetObj(
           user.id,
           user.name,
-          user.profilePic,
+          user.pic,
           tweetData.txt,
           tweetData.img
         );

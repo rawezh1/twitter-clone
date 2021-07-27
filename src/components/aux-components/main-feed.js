@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import ShowTweet from './aux-components/show-tweet';
+import ShowTweet from '../aux-components/show-tweet';
 import firebase from 'firebase';
 import 'firebase/auth';
-import './account.css';
-import TweetObj from './object-create-functions/create-tweet-obj';
-function MainFeed(props) {
+import './main-feed.css';
+function MainFeed() {
   const [tweets, updateTweets] = useState([]);
 
   useEffect(() => {

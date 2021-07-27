@@ -1,10 +1,5 @@
-.main-div {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1.5fr;
-}
-
-.account-header{
-  border: solid  rgb(228, 230, 232);
+.account-header {
+  border: solid rgb(228, 230, 232);
   border-width: 1px;
 }
 .banner {
@@ -14,7 +9,7 @@
 .img-follow-cont {
   display: flex;
   justify-content: space-between;
-  padding-left:1vmin;
+  padding-left: 1vmin;
 }
 
 .profile-pic {
@@ -26,14 +21,14 @@
   border: solid white;
 }
 .profile-pic:hover {
-    filter: brightness(80%);
+  filter: brightness(80%);
 }
 .follow-btn {
-    width: 100px;
-    height:40px;
-    border-radius: 20px;
-    border: solid thin blue;
-    color:blue;
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  border: solid thin blue;
+  color: blue;
 }
 .name-id-cont {
   display: flex;
@@ -41,14 +36,14 @@
   align-items: flex-start;
 }
 .name-h {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   font-size: 20px;
   color: rgb(15, 20, 25);
 }
 .id-h {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   color: rgba(128, 128, 128, 0.76);
 }
 .bio-links-cont {
@@ -59,7 +54,7 @@
   color: rgb(83, 100, 113);
 }
 .bio-p {
-  color:black;
+  color: black;
 }
 a {
   text-decoration: none;
@@ -78,19 +73,18 @@ a {
   justify-content: space-between;
 }
 .feed-select > div {
-  border:none black;
+  border: none black;
   height: 10vmin;
-  width:100%;
+  width: 100%;
   line-height: 10vmin;
   transition-duration: 0.2s;
 }
 .feed-select > div > a {
-  color:rgb(69, 83, 94);
-  
+  color: rgb(69, 83, 94);
 }
 .feed-select > div:hover {
   background-color: rgba(139, 175, 241, 0.438);
 }
 .feed-select > div:hover > a {
-  color:rgb(29, 161, 242);
+  color: rgb(29, 161, 242);
 }
