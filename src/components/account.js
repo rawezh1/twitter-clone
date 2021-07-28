@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import ShowTweet from './aux-components/show-tweet';
 import './account.css';
 import LeftBar from './panels/left-panel';
 import RightBar from './panels/right-panel';
@@ -12,7 +10,7 @@ function Account(props) {
     return pathName.pop()
   }
   return (
-    <div className='main-div'>
+    <div className='account-main-div'>
       <LeftBar />
       <div className='account'>
           <AccountHeader name={getPathName()}/>

@@ -5,12 +5,13 @@ import MainFeed from './aux-components/main-feed';
 import LeftBar from './panels/left-panel';
 import RightBar from './panels/right-panel';
 import './home.css'
+import ProfileFeed from './aux-components/profile-feed';
 
 function Home() {
   return (
-    <div className='main-div'>
+    <div className='home-main-div'>
         <LeftBar/>
-        <MainFeed/>
+        <ProfileFeed />
         <RightBar/>
     </div>
   );

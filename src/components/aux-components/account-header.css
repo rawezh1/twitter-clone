@@ -2,17 +2,17 @@
   border: solid rgb(228, 230, 232);
   border-width: 1px;
 }
-.banner {
+.account-header > .banner {
   width: 100%;
   height: 35vh;
 }
-.img-follow-cont {
+.account-header > .profile > .img-follow-cont {
   display: flex;
   justify-content: space-between;
   padding-left: 1vmin;
 }
 
-.profile-pic {
+.account-header > .profile > .img-follow-cont > .profile-pic {
   width: 133px;
   height: 133px;
   border-radius: 50%;
@@ -20,71 +20,71 @@
   transition-duration: 0.2s;
   border: solid white;
 }
-.profile-pic:hover {
+.account-header > .profile > .img-follow-cont > .profile-pic:hover {
   filter: brightness(80%);
 }
-.follow-btn {
+.account-header > .profile > .img-follow-cont > .follow-btn {
   width: 100px;
   height: 40px;
   border-radius: 20px;
   border: solid thin blue;
   color: blue;
 }
-.name-id-cont {
+.account-header > .profile > .name-id-cont {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-.name-h {
+.account-header > .profile > .name-id-cont > .name-h {
   margin: 0;
   padding: 0;
   font-size: 20px;
   color: rgb(15, 20, 25);
 }
-.id-h {
+.account-header > .profile > .name-id-cont > .id-h {
   margin: 0;
   padding: 0;
   color: rgba(128, 128, 128, 0.76);
 }
-.bio-links-cont {
+.account-header > .profile > .bio-links-cont {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   font-size: 15px;
   color: rgb(83, 100, 113);
 }
-.bio-p {
+.account-header > .profile > .bio-links-cont > .bio-p {
   color: black;
 }
-a {
+.account-header > .profile > .bio-links-cont > .follower-cont > a {
   text-decoration: none;
 }
-.followers-a {
+.account-header > .profile > .bio-links-cont > .follower-cont > .followers-a {
   margin-left: 5vmin;
 }
-.following-a:hover {
+.account-header > .profile > .bio-links-cont > .follower-cont > .following-a:hover {
   text-decoration: underline;
 }
-.following-a:hover {
+.account-header > .profile > .bio-links-cont > .follower-cont > .following-a:hover {
   text-decoration: underline;
 }
 .feed-select {
   display: flex;
   justify-content: space-between;
 }
-.feed-select > div {
+.account-header > .profile > .feed-select > div {
   border: none black;
   height: 10vmin;
   width: 100%;
   line-height: 10vmin;
   transition-duration: 0.2s;
 }
-.feed-select > div > a {
+.account-header > .profile > .feed-select > div > a {
   color: rgb(69, 83, 94);
 }
-.feed-select > div:hover {
+.account-header > .profile > .feed-select > div:hover {
   background-color: rgba(139, 175, 241, 0.438);
 }
-.feed-select > div:hover > a {
+.account-header > .profile > .feed-select > div:hover > a {
   color: rgb(29, 161, 242);
 }

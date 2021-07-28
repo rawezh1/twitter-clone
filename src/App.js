@@ -11,6 +11,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import CreateTweet from './components/aux-components/create-tweet';
 import Home from './components/home';
 import Profile from './components/profile';
+import Welcome from './components/welcome';
+import LeftBar from './components/panels/left-panel';
 
 function App() {
   if (!firebase.apps.length) {
@@ -45,13 +47,16 @@ function App() {
     <Router>
       <div className='App'>
         <Switch>
-          <Route path='/account'>
+          <Route path='/' exact>
+            <Welcome />
+          </Route>
+          <Route path='/account' exact>
             <Account />
           </Route>
-          <Route path='/profile'>
+          <Route path='/profile' exact>
             <Profile />
           </Route>
-          <Route path='/home'>
+          <Route path='/home' exact>
             {' '}
             <Home />{' '}
           </Route>

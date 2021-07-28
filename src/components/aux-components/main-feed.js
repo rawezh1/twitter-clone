@@ -3,6 +3,8 @@ import ShowTweet from '../aux-components/show-tweet';
 import firebase from 'firebase';
 import 'firebase/auth';
 import './main-feed.css';
+import LeftBar from '../panels/left-panel';
+import RightBar from '../panels/right-panel';
 function MainFeed() {
   const [tweets, updateTweets] = useState([]);
 
@@ -25,19 +27,19 @@ function MainFeed() {
 
   const makeFeed = () => {
     if (tweets.length === 0) {
-      return null;
+      return <h1>Loading...</h1>
     }
-    const feed = tweets.map((tweet,index) => {
+    const feed = tweets.map((tweet, index) => {
       return <ShowTweet key={index} content={tweet} />;
-    })
+    });
     return feed;
   };
 
   return (
-    <div className='feed'>
-      <div>
-        <div>{makeFeed()}</div>
-      </div>
+    <div className='main-div'>
+      <LeftBar />
+      <div>{makeFeed()}</div>
+      <RightBar/>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-.right-items {
+.right-bar > .right-items {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -9,7 +9,7 @@
   margin-top: 0px;
   margin-right: 10px;
 }
-.right-items > button {
+.right-bar > .right-items > button {
   border: none;
   width: 90%;
   height: 3em;
@@ -19,6 +19,6 @@
   background-color: cornflowerblue;
   transition: 0.1s;
 }
-.right-items > button:hover {
-    filter: brightness(0.95);
+.right-bar > .right-items > button:hover {
+  filter: brightness(0.95);
 }

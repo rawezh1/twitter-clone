@@ -1,59 +1,115 @@
 .tweet-cont {
-    border:solid rgb(228, 230, 232);
-    border-width: 1px;
+  border: solid rgb(228, 230, 232);
+  border-width: 1px;
 }
 .tweet-cont:hover {
-    background-color: rgb(228, 230, 232);
+  background-color: rgb(228, 230, 232);
 }
-.tweet {
+.tweet-cont > .tweet {
   display: flex;
 }
-.right-side {
-    flex-grow: 2;
-}
-.tweet-content {
-    display: flex;
-    flex-direction: column;
-}
-.tweet-profile-pic {
+.tweet-cont > .tweet > .left-side > .tweet-profile-pic {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   transition-duration: 0.2s;
-  margin-left:10px;
+  margin-left: 10px;
 }
-.tweet-profile-pic:hover {
+.tweet-cont > .tweet > .left-side > .tweet-profile-pic:hover {
   filter: brightness(80%);
 }
-.name-id-date-cont {
+.tweet-cont > .tweet > .right-side {
+  flex-grow: 2;
+}
+.tweet-cont > .tweet > .right-side > .tweet-content {
+  display: flex;
+  flex-direction: column;
+}
+.tweet-cont > .tweet > .right-side > .tweet-content > .name-id-date-cont {
   margin-left: 10px;
   text-align: start;
 }
-.name-id-date-cont > .id-h {
-    margin-left:5px;
+.tweet-cont
+  > .tweet
+  > .right-side
+  > .tweet-content
+  > .name-id-date-cont
+  > .id-h {
+  margin-left: 5px;
 }
-.tweet-date {
-    color: rgba(128, 128, 128, 0.76);
+.tweet-cont
+  > .tweet
+  > .right-side
+  > .tweet-content
+  > .name-id-date-cont
+  > .tweet-date {
+  color: rgba(128, 128, 128, 0.76);
 }
-.tweet-text {
-    text-align: start;
+.tweet-cont > .tweet > .right-side > .tweet-content > .tweet-text {
+  text-align: start;
 }
-.tweet-img {
-    text-align: start;
-    margin-bottom: 10px;
+.tweet-cont > .tweet > .right-side > .tweet-content > .tweet-img {
+  text-align: start;
+  margin-bottom: 10px;
 }
-.tweet-interaction {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.tweet-cont > .tweet > .right-side > .tweet-content > .tweet-interaction {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-.reply,.like,.retweet,.share {
-    height:1.5em;
-    width:1.5em;
-    border-radius: 50%;
+.tweet-cont
+  > .tweet
+  > .right-side
+  > .tweet-content
+  > .tweet-interaction
+  > .reply,
+.tweet-cont
+  > .tweet
+  > .right-side
+  > .tweet-content
+  > .tweet-interaction
+  > .like,
+.tweet-cont
+  > .tweet
+  > .right-side
+  > .tweet-content
+  > .tweet-interaction
+  > .retweet,
+.tweet-cont
+  > .tweet
+  > .right-side
+  > .tweet-content
+  > .tweet-interaction
+  > .share {
+  height: 1.5em;
+  width: 1.5em;
+  border-radius: 50%;
 }
-.reply:hover,.like:hover,.retweet:hover,.share:hover {
-    stroke: cornflowerblue;
-    fill:cornflowerblue;
-    background-color: rgba(66, 89, 90, 0.363);
+.tweet-cont
+  > .tweet
+  > .right-side
+  > .tweet-content
+  > .tweet-interaction
+  > .reply:hover,
+.tweet-cont
+  > .tweet
+  > .right-side
+  > .tweet-content
+  > .tweet-interaction
+  > .like:hover,
+.tweet-cont
+  > .tweet
+  > .right-side
+  > .tweet-content
+  > .tweet-interaction
+  > .retweet:hover,
+.tweet-cont
+  > .tweet
+  > .right-side
+  > .tweet-content
+  > .tweet-interaction
+  > .share:hover {
+  stroke: cornflowerblue;
+  fill: cornflowerblue;
+  background-color: rgba(66, 89, 90, 0.363);
 }
