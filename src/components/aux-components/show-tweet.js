@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './show-tweet.css';
 import Retweet from '../images/retweet.svg';
 
@@ -26,7 +27,7 @@ function ShowTweet(props) {
         <div className='right-side'>
           <div className='tweet-content'>
             <div className='name-id-date-cont'>
-              <span className='name-h'>{contents.userName}</span>
+              <Link className='name-h' to={`/profile/${contents.userId}`} >{contents.userName}</Link>
               <span className='id-h'>{contents.userId}</span>
               <span className='tweet-date'> {contents.date}</span>
             </div>

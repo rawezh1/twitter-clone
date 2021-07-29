@@ -3,7 +3,7 @@ import DefualtBanner from '../images/default-header.jpg';
 class AccountObj {
   constructor(name, birthday) {
     this.name = name;
-    this.id = '@' + name;
+    this.id = '@' + name.trim().toLowerCase();
     this.birthday = birthday;
     this.pic = DefaultPic;
     this.banner = DefualtBanner;

@@ -6,14 +6,12 @@ import 'firebase/auth';
 import './App.css';
 import SignUp from './components/signup-in/sign-up';
 import SignIn from './components/signup-in/sign-in';
-import { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import CreateTweet from './components/aux-components/create-tweet';
 import Home from './components/home';
-import Profile from './components/profile';
+import Edit from './components/profile-edit';
 import Welcome from './components/welcome';
-import LeftBar from './components/panels/left-panel';
-
+import Profile from './profile';
 function App() {
   if (!firebase.apps.length) {
     firebase.initializeApp({
@@ -36,13 +34,7 @@ function App() {
     console.log('delete done');
   };
   //done();
-  const signOut = () => {
-    return firebase
-      .auth()
-      .signOut()
-      .then(() => console.log('logged out'))
-      .catch((err) => console.log(err));
-  };
+  
   return (
     <Router>
       <div className='App'>
@@ -53,8 +45,8 @@ function App() {
           <Route path='/account' exact>
             <Account />
           </Route>
-          <Route path='/profile' exact>
-            <Profile />
+          <Route path='/edit' exact>
+            <Edit />
           </Route>
           <Route path='/home' exact>
             {' '}
@@ -73,6 +65,9 @@ function App() {
           </Route>
           <Route path='/createtweet' exact>
             <CreateTweet pic={new AccountObj('a', 'b', 'c', 'd').pic} />
+          </Route>
+          <Route path='/profile/:atId' exact>
+            <Profile />
           </Route>
         </Switch>
       </div>

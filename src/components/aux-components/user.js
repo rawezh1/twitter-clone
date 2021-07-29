@@ -4,18 +4,15 @@ import firebase from 'firebase';
 import 'firebase/auth';
 import './profile-feed.css';
 import { findUid } from '../helpers/helper-funcs';
-function ProfileFeed(props) {
+function User(props) {
   const [tweets, updateTweets] = useState(null);
 
   useEffect(() => {
     const initialize = async () => {
-      
-       const  uid = props.uid;
-      
-      console.log(uid);
+      const uid = await findUid(props.atId);
       await firebase
         .database()
-        .ref('users/' + uid + '/tweets/')
+        .ref('users/'+uid+'/tweets/')
         .once('value', (snapshot) => {
           var data = [];
           snapshot.forEach((element) => {
@@ -42,4 +39,4 @@ function ProfileFeed(props) {
   };
   return <div className='feed'>{render()}</div>;
 }
-export default ProfileFeed;
+export default User;

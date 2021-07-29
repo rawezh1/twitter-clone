@@ -22,6 +22,7 @@
   background-color: rgba(143, 170, 221, 0.233);
 }
 .to-blue:hover {
+  cursor: pointer;
   background-color: rgba(180, 206, 255, 0.349);
 }
 .to-blue:hover > span {
@@ -35,10 +36,9 @@
   display: flex;
   width: min-content;
   flex-direction: row;
-  justify-items: baseline;
-  height: 2.2em;
+  align-items: center;
+  height: 2.8em;
   border-radius: 2em;
-  padding-top: 14px;
   transition: 0.2s;
 }
 .left-bar > .sticky-bar > .left-links > .link-bar > svg {
@@ -47,7 +47,9 @@
   margin-left: 12px;
   transition: 0.2s;
 }
-.left-bar > .sticky-bar > .left-links > .link-bar > span {
+.link-bar > span,
+.link-bar > .span {
+  white-space: nowrap;
   color: rgb(15, 20, 25);
   width: 50%;
   font-size: 1.1em;
@@ -65,5 +67,9 @@
   border-radius: 25px;
   background-color: cornflowerblue;
   transition: 0.1s;
-  margin-bottom: 2px;
+  margin-top: 1vh;
+}
+.left-bar > .sticky-bar > button:hover {
+  cursor: pointer;
+  filter: brightness(0.95);
 }

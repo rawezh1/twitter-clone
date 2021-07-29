@@ -4,3 +4,6 @@ html , body {
 .App {
   text-align: center;
 }
+a {
+  text-decoration: none;
+}

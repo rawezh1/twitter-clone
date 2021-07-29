@@ -2,10 +2,10 @@ import firebase from 'firebase';
 import 'firebase/auth';
 import { useState } from 'react';
 import { useEffect, useRef } from 'react/cjs/react.development';
-import './profile.css';
+import './profile-edit.css';
 import { convertImgto64, removeEmpty } from './helpers/helper-funcs';
 
-function Profile() {
+function Edit() {
   const [user, updateUser] = useState(null);
   const [formData, updateFormData] = useState(null);
   firebase.auth().onAuthStateChanged((userState) => {
@@ -52,6 +52,7 @@ function Profile() {
     e.preventDefault();
     console.log(formData);
     var data = { ...formData };
+    data.id = data.id.trim().toLowerCase();
     removeEmpty(data);
     if (data.id) {
       if (data.id[0] !== '@') {
@@ -64,7 +65,6 @@ function Profile() {
     if (data.banner) {
       data.banner = convertImgto64(data.banner);
     }
-    console.log(data);
     firebase
       .database()
       .ref('users/' + user.uid)
@@ -122,4 +122,4 @@ function Profile() {
   return render();
 }
 
-export default Profile;
+export default Edit;
