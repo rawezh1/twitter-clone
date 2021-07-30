@@ -1,0 +1,36 @@
+.signin-form > .form-cont {
+  width: 35vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+.signin-form > .form-cont > .icon {
+  fill: rgba(29, 161, 242, 1);
+  width: 7vw;
+  height: 7vh;
+}
+.signin-form > .form-cont > h1 {
+  text-align: left;
+}
+.signin-form > .form-cont > form {
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 3;
+}
+.signin-form > .form-cont > form > input {
+  height: 7vh;
+  background-color: white;
+}
+.signin-form > .form-cont > form > #submit {
+  border-radius: 3.5vh;
+  background-color: rgb(29, 161, 242);
+  border: none;
+  color: white;
+  font-size: medium;
+  transition: 0.1s;
+}
+.signin-form > .form-cont > form > #submit:hover {
+    filter: brightness(0.95);
+    cursor: pointer;
+}

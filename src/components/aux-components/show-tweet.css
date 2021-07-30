@@ -1,115 +1,166 @@
-.tweet-cont {
+.tweet {
   border: solid rgb(228, 230, 232);
   border-width: 1px;
+  min-height: 25vh;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
 }
-.tweet-cont:hover {
-  background-color: rgb(228, 230, 232);
+.tweet:hover {
+  background-color: rgba(158, 188, 218, 0.185);
 }
-.tweet-cont > .tweet {
+.tweet > .right-side > .tweet-content {
   display: flex;
 }
-.tweet-cont > .tweet > .left-side > .tweet-profile-pic {
+.tweet > .left-side > .tweet-profile-pic {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   transition-duration: 0.2s;
   margin-left: 10px;
 }
-.tweet-cont > .tweet > .left-side > .tweet-profile-pic:hover {
+.tweet > .left-side > .tweet-profile-pic:hover {
   filter: brightness(80%);
 }
-.tweet-cont > .tweet > .right-side {
-  flex-grow: 2;
+.tweet > .right-side {
+  flex-grow: 3;
+  margin-left: 1vw;
+  display: flex;
+  align-items: stretch;
 }
-.tweet-cont > .tweet > .right-side > .tweet-content {
+.tweet > .right-side > .tweet-content {
+  flex-grow: 2;
   display: flex;
   flex-direction: column;
 }
-.tweet-cont > .tweet > .right-side > .tweet-content > .name-id-date-cont {
+.tweet > .right-side > .tweet-content > .name-id-date-cont {
   margin-left: 10px;
   text-align: start;
 }
-.tweet-cont
-  > .tweet
-  > .right-side
-  > .tweet-content
-  > .name-id-date-cont
-  > .id-h {
+.tweet > .right-side > .tweet-content > .name-id-date-cont > .id-h {
   margin-left: 5px;
 }
-.tweet-cont
-  > .tweet
-  > .right-side
-  > .tweet-content
-  > .name-id-date-cont
-  > .tweet-date {
+.tweet > .right-side > .tweet-content > .name-id-date-cont > .tweet-date {
   color: rgba(128, 128, 128, 0.76);
 }
-.tweet-cont > .tweet > .right-side > .tweet-content > .tweet-text {
+.tweet > .right-side > .tweet-content > .tweet-text {
   text-align: start;
 }
-.tweet-cont > .tweet > .right-side > .tweet-content > .tweet-img {
+.tweet > .right-side > .tweet-content > .tweet-img {
   text-align: start;
   margin-bottom: 10px;
 }
-.tweet-cont > .tweet > .right-side > .tweet-content > .tweet-interaction {
+.tweet > .right-side > .tweet-content > .tweet-interaction {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 90%;
+  margin-top: auto;
+  margin-bottom: 1vh;
 }
-.tweet-cont
-  > .tweet
-  > .right-side
-  > .tweet-content
-  > .tweet-interaction
-  > .reply,
-.tweet-cont
-  > .tweet
-  > .right-side
-  > .tweet-content
-  > .tweet-interaction
-  > .like,
-.tweet-cont
-  > .tweet
-  > .right-side
-  > .tweet-content
-  > .tweet-interaction
-  > .retweet,
-.tweet-cont
-  > .tweet
-  > .right-side
-  > .tweet-content
-  > .tweet-interaction
-  > .share {
-  height: 1.5em;
-  width: 1.5em;
-  border-radius: 50%;
+.tweet > .right-side > .tweet-content > .tweet-interaction > .icon-cont {
+  height: 2em;
+  width: 25%;
 }
-.tweet-cont
-  > .tweet
+.tweet
   > .right-side
   > .tweet-content
   > .tweet-interaction
-  > .reply:hover,
-.tweet-cont
-  > .tweet
+  > .icon-cont
+  > .svg-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:2.2em;
+    width: 2.2em;
+    border-radius: 50%;
+  }
+.tweet
   > .right-side
   > .tweet-content
   > .tweet-interaction
-  > .like:hover,
-.tweet-cont
-  > .tweet
-  > .right-side
-  > .tweet-content
-  > .tweet-interaction
-  > .retweet:hover,
-.tweet-cont
-  > .tweet
-  > .right-side
-  > .tweet-content
-  > .tweet-interaction
-  > .share:hover {
-  stroke: cornflowerblue;
-  fill: cornflowerblue;
-  background-color: rgba(66, 89, 90, 0.363);
+  > .icon-cont
+  > .svg-cont
+  > svg {
+  height: 1.2em;
+  width: 1.2em;
 }
+.tweet
+  > .right-side
+  > .tweet-content
+  > .tweet-interaction
+  > .icon-cont:hover {
+    cursor: pointer;
+  }
+.tweet
+  > .right-side
+  > .tweet-content
+  > .tweet-interaction
+  > .reply:hover
+  > .svg-cont {
+    background-color:rgba(33, 156, 233, 0.322);
+    color:rgba(33, 156, 233);
+  }
+  .tweet
+  > .right-side
+  > .tweet-content
+  > .tweet-interaction
+  > .reply:hover
+  > .svg-cont
+  > svg {
+    fill:rgba(33, 156, 233);
+  }
+  .tweet
+  > .right-side
+  > .tweet-content
+  > .tweet-interaction
+  > .retweet:hover
+  > .svg-cont {
+    background-color:rgba(27, 185, 101, 0.24);
+    color:rgba(27,185,100);
+  }
+  .tweet
+  > .right-side
+  > .tweet-content
+  > .tweet-interaction
+  > .retweet:hover
+  > .svg-cont
+  > svg {
+    fill:rgba(27,185,100);
+  }
+  .tweet
+  > .right-side
+  > .tweet-content
+  > .tweet-interaction
+  > .like:hover
+  > .svg-cont {
+    background-color:rgba(224,36,94, 0.24);
+    color:rgba(224,36,94);
+  }
+  .tweet
+  > .right-side
+  > .tweet-content
+  > .tweet-interaction
+  > .like:hover
+  > .svg-cont
+  > svg {
+    fill:rgba(224,36,94);
+  }
+  .tweet
+  > .right-side
+  > .tweet-content
+  > .tweet-interaction
+  > .share:hover
+  > .svg-cont {
+    background-color:rgba(33, 156, 233, 0.322);
+    color:rgba(33, 156, 233);
+  }
+  .tweet
+  > .right-side
+  > .tweet-content
+  > .tweet-interaction
+  > .share:hover
+  > .svg-cont
+  > svg {
+    fill:rgba(33, 156, 233);
+  }

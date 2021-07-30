@@ -1,16 +1,46 @@
-.reg-from {
-    background-color: grey;
+.reg-form {
+  background-color: grey;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reg-form > .form-cont > .icon {
+  fill: rgba(29, 161, 242, 1);
+  width: 7vw;
+  height: 7vh;
+  margin-top: 1vh;
 }
 .reg-form > .form-cont {
-    max-width: 50%;
-    max-height: 90%;
-    margin:auto;
-    margin-top: 10%;
-    background-color: white;
-    border: solid grey;
-    border-radius: 10px;
+  width: 50%;
+  height: 80%;
+  background-color: white;
+  border-radius: 1vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .reg-form > .form-cont > form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+  justify-content: space-evenly;
+  width: 80%;
+}
+.reg-form > .form-cont > form > input {
+  height: 10%;
+}
+.reg-form > .form-cont > form > #submit {
+  border-radius: 3.5vh;
+  background-color: rgb(29, 161, 242);
+  border: none;
+  color: white;
+  font-size: medium;
+  transition: 0.1s;
+}
+.reg-form > .form-cont > form > #submit:hover {
+  filter: brightness(0.95);
+  cursor: pointer;
 }
