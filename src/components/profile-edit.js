@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useEffect, useRef } from 'react/cjs/react.development';
 import './profile-edit.css';
 import { convertImgto64, removeEmpty } from './helpers/helper-funcs';
-
 function Edit() {
   const [user, updateUser] = useState(null);
   const [formData, updateFormData] = useState(null);
@@ -97,12 +96,11 @@ function Edit() {
             onChange={handleChange}
           ></input>
           <label htmlFor='bio'>Biography:</label>
-          <input
-            type='text'
+          <textarea
             id='bio'
             value={formData.bio}
             onChange={handleChange}
-          ></input>
+          ></textarea>
           <label htmlFor='pic'>Profile picture:</label>
           <input
             type='file'
@@ -127,7 +125,7 @@ function Edit() {
     if (user && formData) {
       return component();
     } else {
-      return <h1>Loading...</h1>;
+      return <div className='loader'></div>;
     }
   };
   return render();

@@ -38,7 +38,7 @@ function User(props) {
       </div>
       ;
     } else {
-      return <h1>Loading...</h1>;
+      return <div className='loader'></div>;
     }
   };
   return <div className='feed'>

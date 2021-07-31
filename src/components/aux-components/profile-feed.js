@@ -3,8 +3,6 @@ import ShowTweet from '../aux-components/show-tweet';
 import firebase from 'firebase';
 import 'firebase/auth';
 import './profile-feed.css';
-import { firestore } from 'firebase';
-import { findUid } from '../helpers/helper-funcs';
 function ProfileFeed(props) {
   const [tweets, updateTweets] = useState(null);
 
@@ -38,7 +36,7 @@ function ProfileFeed(props) {
     if (tweets) {
       return makeFeed();
     } else {
-      return <h1>Loading...</h1>;
+      return <div className='loader'></div>;
     }
   };
   return <div className='feed'>{render()}</div>;

@@ -23,7 +23,7 @@ function AccountHeader(props) {
     return (
       <div className='account-header'>
         <img className='banner' alt='banner-img' src={info.banner}></img>
-        <div className='profile'>
+        <div className='header-profile'>
           <div className='img-follow-cont'>
             <img className='profile-pic' alt='profile-pic' src={info.pic}></img>
             <button className='follow-btn'>Follow</button>
@@ -69,7 +69,7 @@ function AccountHeader(props) {
     if (user) {
       return makeHeader(user);
     } else {
-      return <h1>Loading...</h1>;
+      return <div className='loader'></div>;
     }
   };
 

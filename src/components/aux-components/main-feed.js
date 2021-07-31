@@ -27,7 +27,7 @@ function MainFeed() {
 
   const makeFeed = () => {
     if (tweets.length === 0) {
-      return <h1>Loading...</h1>
+      return <div className='loader'></div>
     }
     const feed = tweets.reverse().map((tweet, index) => {
       return <ShowTweet key={index} content={tweet} />;

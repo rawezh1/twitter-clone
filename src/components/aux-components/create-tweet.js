@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { useState } from 'react';
 import firebase from 'firebase';
 import 'firebase/auth';
 import './create-tweet.css';
@@ -89,7 +88,7 @@ function CreateTweet(props) {
     } else {
       return (
         <div>
-          <h1>loading</h1>
+          <div className='loader'></div>
         </div>
       );
     }

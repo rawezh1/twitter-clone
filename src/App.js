@@ -1,5 +1,3 @@
-import AccountObj from './components/object-create-functions/create-account-obj';
-import Account from './components/account';
 import MainFeed from './components/aux-components/main-feed';
 import firebase from 'firebase';
 import 'firebase/auth';
@@ -7,7 +5,6 @@ import './App.css';
 import SignUp from './components/signup-in/sign-up';
 import SignIn from './components/signup-in/sign-in';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import CreateTweet from './components/aux-components/create-tweet';
 import Home from './components/home';
 import Edit from './components/profile-edit';
 import Welcome from './components/welcome';
@@ -42,9 +39,6 @@ function App() {
           <Route path='/' exact>
             <Welcome />
           </Route>
-          <Route path='/account' exact>
-            <Account />
-          </Route>
           <Route path='/edit' exact>
             <Edit />
           </Route>
@@ -62,9 +56,6 @@ function App() {
           </Route>
           <Route path='/explore' exact>
             <MainFeed />
-          </Route>
-          <Route path='/createtweet' exact>
-            <CreateTweet pic={new AccountObj('a', 'b', 'c', 'd').pic} />
           </Route>
           <Route path='/profile/:atId' exact>
             <Profile />

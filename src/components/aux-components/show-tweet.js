@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './show-tweet.css';
-import Retweet from '../images/retweet.svg';
 
 function ShowTweet(props) {
   const showNumber = (num) => {

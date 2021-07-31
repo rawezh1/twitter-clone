@@ -1,4 +1,3 @@
-import firebase from 'firebase';
 import 'firebase/auth';
 import LeftBar from './components/panels/left-panel';
 import RightBar from './components/panels/right-panel';

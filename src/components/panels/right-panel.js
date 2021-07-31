@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { useState } from 'react';
 import firebase from 'firebase';
 import './right-panel.css';
 import {changePath, signOut} from '../helpers/helper-funcs'

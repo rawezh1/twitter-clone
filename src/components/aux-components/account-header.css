@@ -6,12 +6,12 @@
   width: 100%;
   height: 35vh;
 }
-.account-header > .profile > .img-follow-cont {
+.account-header > .header-profile > .img-follow-cont {
   display: flex;
   justify-content: space-between;
 }
 
-.account-header > .profile > .img-follow-cont > .profile-pic {
+.account-header > .header-profile > .img-follow-cont > .profile-pic {
   width: 133px;
   height: 133px;
   border-radius: 50%;
@@ -19,10 +19,10 @@
   transition-duration: 0.2s;
   border: solid white;
 }
-.account-header > .profile > .img-follow-cont > .profile-pic:hover {
+.account-header > .header-profile > .img-follow-cont > .profile-pic:hover {
   filter: brightness(80%);
 }
-.account-header > .profile > .img-follow-cont > .follow-btn {
+.account-header > .header-profile > .img-follow-cont > .follow-btn {
   width: 9vw;
   height: 6vh;
   border-radius: 21px;
@@ -33,46 +33,46 @@
   background-color: white;
 
 }
-.account-header > .profile > .img-follow-cont > .follow-btn:hover {
+.account-header > .header-profile > .img-follow-cont > .follow-btn:hover {
   filter: brightness(0.95);
   cursor: pointer;
 }
-.account-header > .profile > .name-id-cont {
+.account-header > .header-profile > .name-id-cont {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
-.account-header > .profile > .name-id-cont > .name-h {
+.account-header > .header-profile > .name-id-cont > .name-h {
   margin: 0;
   padding: 0;
   font-size: 20px;
   color: rgb(15, 20, 25);
 }
-.account-header > .profile > .name-id-cont > .id-h {
+.account-header > .header-profile > .name-id-cont > .id-h {
   margin: 0;
   padding: 0;
   color: rgba(128, 128, 128, 0.76);
 }
-.account-header > .profile > .bio-links-cont {
+.account-header > .header-profile > .bio-links-cont {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   font-size: 15px;
   color: rgb(83, 100, 113);
 }
-.account-header > .profile > .bio-links-cont > .bio-p {
+.account-header > .header-profile > .bio-links-cont > .bio-p {
   color: black;
 }
-.account-header > .profile > .bio-links-cont > .follower-cont > a {
+.account-header > .header-profile > .bio-links-cont > .follower-cont > a {
   text-decoration: none;
 }
-.account-header > .profile > .bio-links-cont > .follower-cont > .followers-a {
+.account-header > .header-profile > .bio-links-cont > .follower-cont > .followers-a {
   margin-left: 5vmin;
 }
-.account-header > .profile > .bio-links-cont > .follower-cont > .following-a:hover {
+.account-header > .header-profile > .bio-links-cont > .follower-cont > .following-a:hover {
   text-decoration: underline;
 }
-.account-header > .profile > .bio-links-cont > .follower-cont > .followers-a:hover {
+.account-header > .header-profile > .bio-links-cont > .follower-cont > .followers-a:hover {
   text-decoration: underline;
 }
 .feed-select {
@@ -96,6 +96,6 @@
 .account-header > .feed-select > div:hover > a {
   color: rgb(29, 161, 242);
 }
-.account-header > .profile {
+.account-header > .header-profile {
   margin-left: 1vw;
 }

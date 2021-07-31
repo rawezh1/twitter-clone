@@ -6,17 +6,14 @@ import LeftBar from './panels/left-panel';
 import RightBar from './panels/right-panel';
 import './home.css'
 import ProfileFeed from './aux-components/profile-feed';
-import { useState } from 'react/cjs/react.development';
 import {useAuthState} from "react-firebase-hooks/auth";
 import CreateTweet from './aux-components/create-tweet';
-import DefaultPic from './images/default-pic.jpg'
 
 function Home() {
   const [user, loading, error] = useAuthState(firebase.auth());
   const render = () => {
     if (loading) {
-      console.log('loading')
-      return <h1>Loading...</h1>
+      return <div className='loader'></div>
     }
     else if (user) {
       return <div>
