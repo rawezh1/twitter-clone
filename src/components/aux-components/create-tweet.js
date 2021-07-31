@@ -4,22 +4,32 @@ import firebase from 'firebase';
 import 'firebase/auth';
 import './create-tweet.css';
 import TweetObj from '../object-create-functions/create-tweet-obj';
-
+import { convertImgto64 } from '../helpers/helper-funcs';
 function CreateTweet(props) {
   const [tweetData, updateTweetData] = useState({ txt: '', img: '' });
   const [user, updateUser] = useState(null);
-  const handleChange = (e) => {
-    updateTweetData({
-      ...tweetData,
-      [e.target.id]: e.target.value.trim(),
-    });
+  const [picture,setPicture] =useState(null)
+  firebase.database().ref('users/'+props.uid).once('value',(snapshot) => {
+    setPicture(snapshot.val().profilePic);
+  })
+  const handleChange = async (e) => {
+    if (e.target.id === 'img') {
+      updateTweetData({
+        ...tweetData,
+        [e.target.id]: await convertImgto64(e.target.files[0]),
+      });
+    } else {
+      updateTweetData({
+        ...tweetData,
+        [e.target.id]: e.target.value.trim(),
+      });
+    }
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const uId = await firebase.auth().currentUser.uid;
     await firebase
       .database()
-      .ref('users/' + uId)
+      .ref('users/' + props.uid)
       .once('value', async (snapshot) => {
         const user = snapshot.val();
         const tweet = await new TweetObj(
@@ -27,42 +37,50 @@ function CreateTweet(props) {
           user.name,
           user.pic,
           tweetData.txt,
-          tweetData.img
+          tweetData.img,
+          new Date()
         );
         const tweetRefKey = await firebase.database().ref('tweets/').push().key;
-        await firebase.database().ref('tweets/' + tweetRefKey).update(tweet);
-        await firebase.database().ref('users/'+uId+'/tweets/'+tweetRefKey).update(tweet)
+        await firebase
+          .database()
+          .ref('tweets/' + tweetRefKey)
+          .update(tweet);
+        await firebase
+          .database()
+          .ref('users/' + props.uid + '/tweets/' + tweetRefKey)
+          .update(tweet);
       });
   };
-  const tweetForm = (pic) => {
-    if (user) {
+  const tweetForm = () => {
+    if (user && picture) {
       return (
         <div className='tweet-form'>
           <div className='left-side'>
             <img
               className='tweet-profile-pic'
-              alt='tweet-profile-pic'
-              src={pic}
+              alt='profile'
+              src={picture}
             ></img>
           </div>
           <div className='right-side'>
             <form onSubmit={handleSubmit}>
-              <input
+              <textarea
                 type='text'
                 id='txt'
                 placeholder='Type tweet...'
                 onChange={handleChange}
-              ></input>
+              ></textarea>
               <input
                 type='file'
                 id='img'
+                accept='.jpg, .jpeg, .png'
                 placeholder='Click to upload images'
                 onChange={handleChange}
               ></input>
               <input
+                className='submit-tweet'
                 type='submit'
                 value='Tweet'
-                onChange={handleChange}
               ></input>
             </form>
           </div>
@@ -79,6 +97,6 @@ function CreateTweet(props) {
   firebase.auth().onAuthStateChanged((user) => {
     return user ? updateUser(user) : null;
   });
-  return tweetForm(props.pic);
+  return tweetForm();
 }
 export default CreateTweet;

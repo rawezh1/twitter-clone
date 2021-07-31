@@ -14,7 +14,7 @@ function MainFeed() {
       await firebase
         .database()
         .ref('tweets/')
-        .once('value', (snapshot) => {
+        .on('value', (snapshot) => {
           var data = [];
           snapshot.forEach((element) => {
             data.push(element.val());
@@ -29,7 +29,7 @@ function MainFeed() {
     if (tweets.length === 0) {
       return <h1>Loading...</h1>
     }
-    const feed = tweets.map((tweet, index) => {
+    const feed = tweets.reverse().map((tweet, index) => {
       return <ShowTweet key={index} content={tweet} />;
     });
     return feed;

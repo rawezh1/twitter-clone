@@ -7,16 +7,17 @@ function AccountHeader(props) {
 
   useEffect(() => {
     const initialize = async () => {
-      const uid = await findUid('One');
+      const uid = await findUid(props.atId);
       await firebase
         .database()
-        .ref('users/' + uid + '/tweets/')
+        .ref('users/' + uid)
         .once('value', (snapshot) => {
+          console.log(snapshot.val())
           updateUser(snapshot.val());
         });
     };
     initialize();
-  }, [props.name]);
+  }, [props.atId]);
 
   const makeHeader = (info) => {
     return (
@@ -25,7 +26,7 @@ function AccountHeader(props) {
         <div className='profile'>
           <div className='img-follow-cont'>
             <img className='profile-pic' alt='profile-pic' src={info.pic}></img>
-            <button className='follow-btn'>follow</button>
+            <button className='follow-btn'>Follow</button>
           </div>
           <div className='name-id-cont'>
             <span className='name-h'>{info.name}</span>
@@ -45,7 +46,8 @@ function AccountHeader(props) {
               </a>
             </div>
           </div>
-          <nav className='feed-select'>
+        </div>
+        <nav className='feed-select'>
             <div className='tweets'>
               <a href='http'>Tweets</a>
             </div>
@@ -60,7 +62,6 @@ function AccountHeader(props) {
               <a href='http'>Likes</a>
             </div>
           </nav>
-        </div>
       </div>
     );
   };

@@ -19,24 +19,19 @@ function SignUp() {
       [e.target.id]: e.target.value.trim(),
     });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const account = new AccountObj(userData.name, userData.birthday);
-    firebase
+    const account = await new AccountObj(userData.name, userData.birthday, new Date());
+    await firebase
       .auth()
       .createUserWithEmailAndPassword(userData.email, userData.password)
       .then((resp) => {
         firebase.database().ref('users/').child(resp.user.uid).set(account);
-      })
-      .then(() => {
-        firebase
-          .auth()
-          .signInWithEmailAndPassword(userData.email, userData.password)
-          .then(() => {
-            console.log('loggin done');
-          })
-          .catch((err) => console.log(err));
       });
+    await firebase
+      .auth()
+      .signInWithEmailAndPassword(userData.email, userData.password);
+      window.location.pathname = 'home'
   };
   return (
     <div className='reg-form'>
@@ -68,7 +63,12 @@ function SignUp() {
           ></input>
           <label htmlFor='birthday'>Birthday:</label>
           <input type='date' id='birthday' onChange={handleChange}></input>
-          <input id='submit' type='submit' value='Submit' onChange={handleChange}></input>
+          <input
+            id='submit'
+            type='submit'
+            value='Submit'
+            onChange={handleChange}
+          ></input>
         </form>
       </div>
     </div>

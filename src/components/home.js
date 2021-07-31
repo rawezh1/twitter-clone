@@ -8,17 +8,22 @@ import './home.css'
 import ProfileFeed from './aux-components/profile-feed';
 import { useState } from 'react/cjs/react.development';
 import {useAuthState} from "react-firebase-hooks/auth";
+import CreateTweet from './aux-components/create-tweet';
+import DefaultPic from './images/default-pic.jpg'
 
 function Home() {
   const [user, loading, error] = useAuthState(firebase.auth());
   const render = () => {
-    console.log(user)
     if (loading) {
       console.log('loading')
       return <h1>Loading...</h1>
     }
     else if (user) {
-      return <ProfileFeed uid={firebase.auth().currentUser.uid}></ProfileFeed>
+      return <div>
+        <CreateTweet uid={firebase.auth().currentUser.uid} />
+        <ProfileFeed uid={firebase.auth().currentUser.uid}></ProfileFeed>
+      </div>
+      
     }
   }
   

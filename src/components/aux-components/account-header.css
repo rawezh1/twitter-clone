@@ -9,7 +9,6 @@
 .account-header > .profile > .img-follow-cont {
   display: flex;
   justify-content: space-between;
-  padding-left: 1vmin;
 }
 
 .account-header > .profile > .img-follow-cont > .profile-pic {
@@ -24,11 +23,19 @@
   filter: brightness(80%);
 }
 .account-header > .profile > .img-follow-cont > .follow-btn {
-  width: 100px;
-  height: 40px;
-  border-radius: 20px;
-  border: solid thin blue;
-  color: blue;
+  width: 9vw;
+  height: 6vh;
+  border-radius: 21px;
+  border: solid 1px rgba(29, 161, 242, 1);
+  color: rgba(29, 161, 242, 1);
+  font-size: 15px;
+  font-weight: 700;
+  background-color: white;
+
+}
+.account-header > .profile > .img-follow-cont > .follow-btn:hover {
+  filter: brightness(0.95);
+  cursor: pointer;
 }
 .account-header > .profile > .name-id-cont {
   display: flex;
@@ -65,26 +72,30 @@
 .account-header > .profile > .bio-links-cont > .follower-cont > .following-a:hover {
   text-decoration: underline;
 }
-.account-header > .profile > .bio-links-cont > .follower-cont > .following-a:hover {
+.account-header > .profile > .bio-links-cont > .follower-cont > .followers-a:hover {
   text-decoration: underline;
 }
 .feed-select {
   display: flex;
   justify-content: space-between;
 }
-.account-header > .profile > .feed-select > div {
+.account-header  > .feed-select > div {
   border: none black;
-  height: 10vmin;
+  height: 8vmin;
   width: 100%;
-  line-height: 10vmin;
+  line-height: 8vmin;
   transition-duration: 0.2s;
+  margin-left: 0;
 }
-.account-header > .profile > .feed-select > div > a {
+.account-header > .feed-select > div > a {
   color: rgb(69, 83, 94);
 }
-.account-header > .profile > .feed-select > div:hover {
+.account-header > .feed-select > div:hover {
   background-color: rgba(139, 175, 241, 0.438);
 }
-.account-header > .profile > .feed-select > div:hover > a {
+.account-header > .feed-select > div:hover > a {
   color: rgb(29, 161, 242);
+}
+.account-header > .profile {
+  margin-left: 1vw;
 }

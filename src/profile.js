@@ -3,7 +3,6 @@ import 'firebase/auth';
 import LeftBar from './components/panels/left-panel';
 import RightBar from './components/panels/right-panel';
 import './profile.css';
-
 import User from './components/aux-components/user';
 
 function Profile() {

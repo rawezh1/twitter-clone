@@ -1,0 +1,46 @@
+.tweet-form {
+  border: solid rgb(228, 230, 232);
+  border-width: 1px;
+  min-height: 25vh;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+.tweet-form > .left-side > .tweet-profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition-duration: 0.2s;
+  margin-left: 10px;
+}
+.tweet-form > .right-side {
+    margin-left:1vw;
+}
+.tweet-form > .right-side > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.tweet-form > .right-side > form > #txt {
+  width: 90%;
+  height: 10vh;
+  border: none;
+}
+.tweet-form > .right-side > form > #txt:focus {
+  outline: none;
+}
+.submit-tweet {
+    border-radius: 10vh;
+    background-color: rgb(29, 161, 242);
+    border: none;
+    color: white;
+    font-size: medium;
+    transition: 0.1s;
+    margin-top: 3vh;
+    width: 20vw;
+    height: 5vh;
+  }
+  .submit-tweet:hover {
+    cursor: pointer;
+    filter: brightness(0.95);
+  }

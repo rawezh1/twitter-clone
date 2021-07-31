@@ -40,17 +40,23 @@ function Edit() {
     }
   });
 
-  const handleChange = (e) => {
-    const newValue = {
-      ...formData,
-      [e.target.id]: e.target.value,
-    };
-    updateFormData(newValue);
+  const handleChange = async (e) => {
+    if (e.target.id === 'pic' || e.target.id === 'banner') {
+      updateFormData({
+        ...formData,
+        [e.target.id]: await convertImgto64(e.target.files[0]),
+      });
+    } else {
+      const newValue = {
+        ...formData,
+        [e.target.id]: e.target.value,
+      };
+      updateFormData(newValue);
+    }
   };
   // TODO: redirect to home page after submit, also do this for sign up.
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
     var data = { ...formData };
     data.id = data.id.trim().toLowerCase();
     removeEmpty(data);
@@ -59,16 +65,11 @@ function Edit() {
         data.id = '@' + data.id;
       }
     }
-    if (data.pic) {
-      data.pic = convertImgto64(data.pic);
-    }
-    if (data.banner) {
-      data.banner = convertImgto64(data.banner);
-    }
-    firebase
+    await firebase
       .database()
       .ref('users/' + user.uid)
       .update(data);
+    window.location.pathname = 'home';
   };
   const component = () => {
     return (
@@ -102,10 +103,20 @@ function Edit() {
             value={formData.bio}
             onChange={handleChange}
           ></input>
-          <label htmlFor='pic'>Profile picture (only jpg):</label>
-          <input type='file' id='pic' onChange={handleChange}></input>
-          <label htmlFor='banner'>Cover image (only jpg):</label>
-          <input type='file' id='banner' onChange={handleChange}></input>
+          <label htmlFor='pic'>Profile picture:</label>
+          <input
+            type='file'
+            accept='.jpg, .jpeg, .png'
+            id='pic'
+            onChange={handleChange}
+          ></input>
+          <label htmlFor='banner'>Cover image:</label>
+          <input
+            type='file'
+            accept='.jpg, .jpeg, .png'
+            id='banner'
+            onChange={handleChange}
+          ></input>
           <input type='submit'></input>
         </form>
       </div>
